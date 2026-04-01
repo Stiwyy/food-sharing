@@ -1,36 +1,49 @@
 export default function LoginForm() {
     return (
         <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
-            <div>
-                <label htmlFor="login-email" className="block text-sm font-medium mb-1">
-                    E-Mail
-                </label>
+            <Field label="Email" htmlFor="login-email">
                 <input
                     id="login-email"
                     type="email"
                     placeholder="example@test.com"
-                    className="w-full rounded-lg border border-slate-300 px-3 py-2 outline-none focus:ring-2 focus:ring-slate-300"
+                    className="w-full rounded-xl border border-slate-600/60 bg-slate-900/60 px-3.5 py-2.5 text-slate-100 placeholder:text-slate-500 outline-none transition focus:border-violet-500 focus:ring-4 focus:ring-violet-500/25"
                 />
-            </div>
+            </Field>
 
-            <div>
-                <label htmlFor="login-password" className="block text-sm font-medium mb-1">
-                    Passwort
-                </label>
+            <Field label="Password" htmlFor="login-password">
                 <input
                     id="login-password"
                     type="password"
                     placeholder="••••••••"
-                    className="w-full rounded-lg border border-slate-300 px-3 py-2 outline-none focus:ring-2 focus:ring-slate-300"
+                    className="w-full rounded-xl border border-slate-600/60 bg-slate-900/60 px-3.5 py-2.5 text-slate-100 placeholder:text-slate-500 outline-none transition focus:border-violet-500 focus:ring-4 focus:ring-violet-500/25"
                 />
-            </div>
+            </Field>
 
             <button
                 type="submit"
-                className="w-full rounded-lg bg-slate-900 text-white py-2.5 font-semibold hover:bg-slate-800 transition-colors"
+                className="w-full rounded-xl bg-violet-600 px-4 py-2.5 font-semibold text-white transition hover:bg-violet-500 active:translate-y-px"
             >
-                Login
+                Sign in
             </button>
         </form>
+    );
+}
+
+function Field({
+                   label,
+                   htmlFor,
+                   children,
+               }: {
+    label: string;
+    htmlFor: string;
+    children: React.ReactNode;
+}) {
+    return (
+        <div>
+            <label htmlFor={htmlFor} className="mb-1.5 block text-sm text-slate-300">
+                {label}
+            </label>
+            {children}
+        </div>
     );
 }

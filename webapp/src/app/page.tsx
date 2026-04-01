@@ -1,4 +1,4 @@
-import AuthCard from "@/components/auth/AuthCard";
+import AuthCard from "@/app/components/auth/AuthCard";
 
 export default function HomePage() {
   return (

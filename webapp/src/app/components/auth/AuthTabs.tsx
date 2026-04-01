@@ -6,24 +6,30 @@ type AuthTabsProps = {
 };
 
 export default function AuthTabs({ mode, onChange }: AuthTabsProps) {
-    const base =
-        "w-1/2 py-2 rounded-lg text-sm font-semibold transition-colors border";
-    const active = "bg-slate-900 text-white border-slate-900";
-    const inactive = "bg-white text-slate-700 border-slate-300 hover:bg-slate-50";
-
     return (
-        <div className="flex gap-2">
+        <div
+            className="grid grid-cols-2 rounded-xl p-1"
+            style={{ background: "rgba(15, 23, 42, 0.55)", border: "1px solid var(--card-border)" }}
+        >
             <button
                 type="button"
-                className={`${base} ${mode === "login" ? active : inactive}`}
                 onClick={() => onChange("login")}
+                className="rounded-lg py-2 text-sm font-medium transition"
+                style={{
+                    background: mode === "login" ? "rgba(124,58,237,.22)" : "transparent",
+                    color: mode === "login" ? "#ddd6fe" : "#94a3b8",
+                }}
             >
                 Login
             </button>
             <button
                 type="button"
-                className={`${base} ${mode === "register" ? active : inactive}`}
                 onClick={() => onChange("register")}
+                className="rounded-lg py-2 text-sm font-medium transition"
+                style={{
+                    background: mode === "register" ? "rgba(124,58,237,.22)" : "transparent",
+                    color: mode === "register" ? "#ddd6fe" : "#94a3b8",
+                }}
             >
                 Register
             </button>

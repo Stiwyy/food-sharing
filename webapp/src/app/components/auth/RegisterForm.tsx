@@ -1,48 +1,58 @@
 export default function RegisterForm() {
     return (
         <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
-            <div>
-                <label htmlFor="register-name" className="block text-sm font-medium mb-1">
-                    Name
-                </label>
+            <Field label="Full name" htmlFor="register-name">
                 <input
                     id="register-name"
                     type="text"
                     placeholder="Max Mustermann"
-                    className="w-full rounded-lg border border-slate-300 px-3 py-2 outline-none focus:ring-2 focus:ring-slate-300"
+                    className="w-full rounded-xl border border-slate-600/60 bg-slate-900/60 px-3.5 py-2.5 text-slate-100 placeholder:text-slate-500 outline-none transition focus:border-violet-500 focus:ring-4 focus:ring-violet-500/25"
                 />
-            </div>
+            </Field>
 
-            <div>
-                <label htmlFor="register-email" className="block text-sm font-medium mb-1">
-                    E-Mail
-                </label>
+            <Field label="Email" htmlFor="register-email">
                 <input
                     id="register-email"
                     type="email"
                     placeholder="example@test.com"
-                    className="w-full rounded-lg border border-slate-300 px-3 py-2 outline-none focus:ring-2 focus:ring-slate-300"
+                    className="w-full rounded-xl border border-slate-600/60 bg-slate-900/60 px-3.5 py-2.5 text-slate-100 placeholder:text-slate-500 outline-none transition focus:border-violet-500 focus:ring-4 focus:ring-violet-500/25"
                 />
-            </div>
+            </Field>
 
-            <div>
-                <label htmlFor="register-password" className="block text-sm font-medium mb-1">
-                    Passwort
-                </label>
+            <Field label="Password" htmlFor="register-password">
                 <input
                     id="register-password"
                     type="password"
-                    placeholder="••••••••"
-                    className="w-full rounded-lg border border-slate-300 px-3 py-2 outline-none focus:ring-2 focus:ring-slate-300"
+                    placeholder="At least 8 characters"
+                    className="w-full rounded-xl border border-slate-600/60 bg-slate-900/60 px-3.5 py-2.5 text-slate-100 placeholder:text-slate-500 outline-none transition focus:border-violet-500 focus:ring-4 focus:ring-violet-500/25"
                 />
-            </div>
+            </Field>
 
             <button
                 type="submit"
-                className="w-full rounded-lg bg-slate-900 text-white py-2.5 font-semibold hover:bg-slate-800 transition-colors"
+                className="w-full rounded-xl bg-violet-600 px-4 py-2.5 font-semibold text-white transition hover:bg-violet-500 active:translate-y-px"
             >
-                Register
+                Create account
             </button>
         </form>
+    );
+}
+
+function Field({
+                   label,
+                   htmlFor,
+                   children,
+               }: {
+    label: string;
+    htmlFor: string;
+    children: React.ReactNode;
+}) {
+    return (
+        <div>
+            <label htmlFor={htmlFor} className="mb-1.5 block text-sm text-slate-300">
+                {label}
+            </label>
+            {children}
+        </div>
     );
 }
