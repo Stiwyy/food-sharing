@@ -16,9 +16,6 @@ export default function QuartiereHeader({
             <div>
                 <p className="text-xs uppercase tracking-[0.2em] text-violet-300">Quartiere</p>
                 <h1 className="mt-1 text-3xl font-bold">Community Directory</h1>
-                <p className="mt-2 text-sm text-slate-400">
-                    Dummy overview page. Actions are blocked unless logged in.
-                </p>
             </div>
 
             <div className="flex flex-wrap gap-2">
